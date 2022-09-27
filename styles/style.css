@@ -1,0 +1,130 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+/* font-family: 'Lexend Deca', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+/* font-family: 'Big Shoulders Display', cursive; */
+
+:root {
+  --color-bright-orange: hsl(31, 77%, 52%);
+  --color-dark-cyan: hsl(184, 100%, 22%);
+  --color-very-dark-cyan: hsl(179, 100%, 13%);
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --color-very-light-gray: hsl(0, 0%, 95%);
+}
+
+:is(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+:is(html, body) {
+  height: 100%;
+}
+
+body {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: calc((15 / 16) * 1em);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+:is(input, button, textarea, select) {
+  font: inherit;
+}
+
+/* :is(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+} */
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+}
+
+footer {
+  margin-block: 3rem;
+}
+
+.card-group {
+  max-width: calc((375 / 16) * 1rem);
+}
+
+.card {
+  overflow: hidden;
+  padding: 2em;
+}
+
+.card img {
+  height: calc((28.43 / 16) * 1em);
+}
+
+.card p {
+  color: var(--color-transparent-white);
+  margin-bottom: 2rem;
+  max-width: 23ch;
+}
+
+.card h2 {
+  color: var(--color-very-light-gray);
+  font-family: 'Big Shoulders Display', cursive;
+  font-size: calc((28.43 / 16) * 1em);
+  font-weight: 700;
+  margin-block: 1rem;
+}
+
+.card button {
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: var(--color-very-light-gray);
+}
+
+.card button:hover {
+  border-color: var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+}
+
+.card--sedans {
+  background-color: var(--color-bright-orange);
+  border-radius: 12px 12px 0 0;
+}
+
+.card--sedans button {
+  border: 1px solid var(--color-bright-orange);
+  color: var(--color-bright-orange);
+}
+
+.card--suvs {
+  background-color: var(--color-dark-cyan);
+  border-radius: 0;
+}
+
+.card--suvs button {
+  border: 1px solid var(--color-dark-cyan);
+  color: var(--color-dark-cyan);
+}
+
+.card--luxury {
+  background-color: var(--color-very-dark-cyan);
+  border-radius: 0 0 12px 12px;
+}
+
+.card--luxury button {
+  border: 1px solid var(--color-very-dark-cyan);
+  color: var(--color-very-dark-cyan);
+}
