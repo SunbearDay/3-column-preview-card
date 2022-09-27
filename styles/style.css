@@ -1,12 +1,14 @@
 /* style.css */
 
+/* 
+  Check line heights.
+*/
+
+/* Import fonts. */
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 
-/* font-family: 'Lexend Deca', sans-serif; */
-
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
-
-/* font-family: 'Big Shoulders Display', cursive; */
 
 :root {
   --color-bright-orange: hsl(31, 77%, 52%);
@@ -31,10 +33,11 @@
 }
 
 body {
+  background-color: var(--color-very-light-gray);
   font-family: 'Lexend Deca', sans-serif;
   font-size: calc((15 / 16) * 1em);
-  font-weight: 400;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 img, picture, video, canvas, svg {
@@ -46,14 +49,15 @@ img, picture, video, canvas, svg {
   font: inherit;
 }
 
-/* :is(p, h1, h2, h3, h4, h5, h6) {
+:is(p, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
-} */
+}
 
 main {
   display: grid;
-  place-items: center;
   min-height: 100%;
+  place-items: center;
+  padding: 1em;
 }
 
 footer {
@@ -61,11 +65,12 @@ footer {
 }
 
 .card-group {
+  border-radius: calc((12 / 16) * 1rem);
   max-width: calc((375 / 16) * 1rem);
+  overflow: hidden;
 }
 
 .card {
-  overflow: hidden;
   padding: 2em;
 }
 
@@ -88,20 +93,19 @@ footer {
 }
 
 .card button {
-  padding: 10px 30px;
-  border-radius: 30px;
   background-color: var(--color-very-light-gray);
+  border-radius: 30px;
+  padding: 10px 30px;
 }
 
 .card button:hover {
+  background-color: transparent;
   border-color: var(--color-white);
   color: var(--color-white);
-  background-color: transparent;
 }
 
 .card--sedans {
   background-color: var(--color-bright-orange);
-  border-radius: 12px 12px 0 0;
 }
 
 .card--sedans button {
@@ -111,7 +115,6 @@ footer {
 
 .card--suvs {
   background-color: var(--color-dark-cyan);
-  border-radius: 0;
 }
 
 .card--suvs button {
@@ -121,10 +124,25 @@ footer {
 
 .card--luxury {
   background-color: var(--color-very-dark-cyan);
-  border-radius: 0 0 12px 12px;
 }
 
 .card--luxury button {
   border: 1px solid var(--color-very-dark-cyan);
   color: var(--color-very-dark-cyan);
+}
+
+@media (min-width: calc((1000 / 16) * 1rem)) {
+  .card-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: calc((1440 / 16) * 1rem);
+  }
+
+  .card {
+    padding: 3em;
+  }
+
+  .card p {
+    margin-bottom: 4rem;
+  }
 }
