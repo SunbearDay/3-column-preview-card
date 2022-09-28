@@ -1,14 +1,11 @@
 /* style.css */
 
-/* 
-  Check line heights.
-*/
 
 /* Import fonts. */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
 
 :root {
   --color-bright-orange: hsl(31, 77%, 52%);
@@ -18,6 +15,14 @@
   --color-white: hsl(0, 0%, 100%);
   --color-transparent-white: hsla(0, 0%, 100%, 0.75);
   --color-very-light-gray: hsl(0, 0%, 95%);
+
+  --base-font-size: calc((15 / 16) * 1rem);
+
+  background-color: var(--color-very-light-gray);
+  font-family: "Lexend Deca", sans-serif;
+  font-size: var(--base-font-size);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 :is(*, *::before, *::after) {
@@ -32,50 +37,37 @@
   height: 100%;
 }
 
-body {
-  background-color: var(--color-very-light-gray);
-  font-family: 'Lexend Deca', sans-serif;
-  font-size: calc((15 / 16) * 1em);
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-img, picture, video, canvas, svg {
+:is(img, svg) {
   display: block;
   max-width: 100%;
-}
-
-:is(input, button, textarea, select) {
-  font: inherit;
 }
 
 :is(p, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
 }
 
+/* Center the card group. */
+
 main {
   display: grid;
   min-height: 100%;
   place-items: center;
-  padding: 1em;
-}
-
-footer {
-  margin-block: 3rem;
 }
 
 .card-group {
-  border-radius: calc((12 / 16) * 1rem);
-  max-width: calc((375 / 16) * 1rem);
+  background-color: var(--color-very-light-gray);
+  display: grid;
+  justify-content: center;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .card {
-  padding: 2em;
+  padding: 3em;
 }
 
 .card img {
-  height: calc((28.43 / 16) * 1em);
+  height: 2.5rem;
 }
 
 .card p {
@@ -86,16 +78,19 @@ footer {
 
 .card h2 {
   color: var(--color-very-light-gray);
-  font-family: 'Big Shoulders Display', cursive;
-  font-size: calc((28.43 / 16) * 1em);
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 2.5em;
   font-weight: 700;
   margin-block: 1rem;
 }
 
 .card button {
   background-color: var(--color-very-light-gray);
-  border-radius: 30px;
-  padding: 10px 30px;
+  border-radius: 2em;
+  border-style: solid;
+  border-width: 2px;
+  font: inherit;
+  padding: 0.75em 2em;
 }
 
 .card button:hover {
@@ -106,10 +101,11 @@ footer {
 
 .card--sedans {
   background-color: var(--color-bright-orange);
+  border-radius: 0.75em 0.75em 0 0;
 }
 
 .card--sedans button {
-  border: 1px solid var(--color-bright-orange);
+  border-color: var(--color-bright-orange);
   color: var(--color-bright-orange);
 }
 
@@ -118,31 +114,62 @@ footer {
 }
 
 .card--suvs button {
-  border: 1px solid var(--color-dark-cyan);
+  border-color: var(--color-dark-cyan);
   color: var(--color-dark-cyan);
 }
 
 .card--luxury {
   background-color: var(--color-very-dark-cyan);
+  border-radius: 0 0 0.75em 0.75em;
 }
 
 .card--luxury button {
-  border: 1px solid var(--color-very-dark-cyan);
+  border-color: var(--color-very-dark-cyan);
   color: var(--color-very-dark-cyan);
 }
 
-@media (min-width: calc((1000 / 16) * 1rem)) {
+/* Break point adjustments. */
+
+@media (min-width: 1000px) {
+
+  /* Set card group to horizontal layout. */
+
   .card-group {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: calc((1440 / 16) * 1rem);
+    grid-template-columns: repeat(3, max-content);
+    max-width: 1440px;
   }
 
-  .card {
-    padding: 3em;
+  /* 
+    Push the button down to create 
+      more space with the paragraph. 
+  */
+
+  .card button {
+    margin-top: 3rem;
   }
 
-  .card p {
-    margin-bottom: 4rem;
+  /* Adjust border radius on cards. */
+
+  .card--sedans {
+    border-radius: 0.75em 0 0 0.75em;
   }
+
+  .card--luxury {
+    border-radius: 0 0.75em 0.75em 0;
+  }
+}
+
+/* Footer styles. */
+
+footer {
+  margin-block: 3rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
